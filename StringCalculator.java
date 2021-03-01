@@ -16,9 +16,13 @@ class StringCalculator{
         if(commaCount == 0){
           return Integer.parseInt(numbers);
         }
-        //Two Numbers in the String
+        //Two or more Numbers in the String
         String[] strNumbers = numbers.split(",");
-        return Integer.parseInt(strNumbers[0])+Integer.parseInt(strNumbers[1]); 
+        int Sum=0;
+        for(int i=0;i<strNumbers.length;i++){
+        Sum += Integer.parseInt(strNumbers[i]);
+        }
+        return Sum;
         
       }
     public static void main(String[] args){
