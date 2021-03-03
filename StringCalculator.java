@@ -8,7 +8,7 @@ class StringCalculator{
         int commaCount = 0;
         //Counter Number of Occurences of Comma 
         for(int i=0;i<numbers.length();i++){
-          if(numbers.charAt(i) == ','){
+          if(numbers.charAt(i) == ',' || numbers.charAt(i) == '\n'){
             commaCount++;
           }
         }
@@ -17,6 +17,8 @@ class StringCalculator{
           return Integer.parseInt(numbers);
         }
         //Two or more Numbers in the String
+        //Replacing \n with comma
+        numbers = numbers.replace('\n',',');
         String[] strNumbers = numbers.split(",");
         int Sum=0;
         for(int i=0;i<strNumbers.length;i++){
