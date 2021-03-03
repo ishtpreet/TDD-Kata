@@ -31,5 +31,6 @@ class StringCalculator{
         System.out.println(Add(""));
         System.out.println(Add("1"));
         System.out.println(Add("2,3"));
+        System.out.println(Add("2\n3\n6,4,3,1,3,2,332,3"));
     }
 }
