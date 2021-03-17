@@ -4,33 +4,48 @@ class StringCalculator{
           //Empty String
           return 0;
         }
-        //For one and two Numbers in the String
-        int commaCount = 0;
-        //Counter Number of Occurences of Comma 
-        for(int i=0;i<numbers.length();i++){
-          if(numbers.charAt(i) == ',' || numbers.charAt(i) == '\n'){
-            commaCount++;
+        //Finding delimiter
+        String delimiterS;
+        char delimiter;
+        delimiterS = numbers.substring(2, numbers.indexOf("\n"));
+        delimiter = delimiterS.charAt(0);
+        // System.out.println("Delimeter: "+delimiter);
+        //Counting occurence of delimiter
+        String numberString;
+        numberString = numbers.substring(numbers.indexOf("\n")+1,numbers.length());
+        // System.out.println("New String: "+numberString);
+        
+        // For one and two Numbers in the String
+        int delimerCount = 0;
+        //Counter Number of Occurences of Delimeter 
+        for(int i=0;i<numberString.length();i++){
+          if(numberString.charAt(i) == delimiter){
+            delimerCount++;
           }
         }
+        // System.out.println("Delimeter Count: "+delimerCount);
         //Single Interger in the String
-        if(commaCount == 0){
-          return Integer.parseInt(numbers);
+        if(delimerCount == 0){
+          return Integer.parseInt(numberString);
         }
+
         //Two or more Numbers in the String
-        //Replacing \n with comma
-        numbers = numbers.replace('\n',',');
-        String[] strNumbers = numbers.split(",");
+        //Pushing numbers to array
+        String[] strNumbers = numberString.split(delimiterS);
         int Sum=0;
         for(int i=0;i<strNumbers.length;i++){
         Sum += Integer.parseInt(strNumbers[i]);
+        // System.out.println(strNumbers[i]);
         }
-        return Sum;
-        
+        return Sum;        
       }
+
     public static void main(String[] args){
+      //Empty String
         System.out.println(Add(""));
-        System.out.println(Add("1"));
-        System.out.println(Add("2,3"));
-        System.out.println(Add("2\n3\n6,4,3,1,3,2,332,3"));
+        //one and more numbers
+        System.out.println(Add("//,\n1"));
+        System.out.println(Add("//;\n2;3"));
+        System.out.println(Add("//,\n2,3,6,4,3,1,3,2,332,3"));
     }
 }
