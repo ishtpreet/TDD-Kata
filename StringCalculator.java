@@ -5,7 +5,13 @@ class NegativeNumberException extends RuntimeException{
 }
 
 class StringCalculator{
+  static int count;
+    public static int GetCalledCount(){
+      count++;
+      return count;
+    }
     public static int Add(String numbers) throws NegativeNumberException{
+      GetCalledCount();
         if(numbers == ""){
           //Empty String
           return 0;
@@ -92,5 +98,6 @@ class StringCalculator{
         if(result!=-1){
           System.out.println(result);
         }
+        System.out.println(GetCalledCount()-1);
     }
 }
