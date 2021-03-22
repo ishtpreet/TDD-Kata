@@ -43,7 +43,10 @@ class StringCalculator{
               throw new NegativeNumberException("negatives not allowed");
             }
             else{
+              if(Integer.parseInt(numberString)<=1000)
               return Integer.parseInt(numberString);
+              else
+              return 0;
             }
           }
           catch(NegativeNumberException e){
@@ -64,6 +67,7 @@ class StringCalculator{
             }
             else{
               // System.out.println(strNumbers[i]);
+              if(Integer.parseInt(strNumbers[i])<=1000)
               Sum += Integer.parseInt(strNumbers[i]);
             }
           } catch (NegativeNumberException e) {
@@ -86,7 +90,7 @@ class StringCalculator{
           System.out.println(result);
         }
         //one and more numbers
-        result = Add("//,\n-1");
+        result = Add("//,\n10000");
         if(result!=-1){
           System.out.println(result);
         }
@@ -94,7 +98,7 @@ class StringCalculator{
         if(result!=-1){
           System.out.println(result);
         }
-        result = Add("//,\n2,3,6,4,3,1,3,2,332,3");
+        result = Add("//,\n2,3,6,4,3,1,3,2,332,1001");
         if(result!=-1){
           System.out.println(result);
         }
