@@ -1,5 +1,7 @@
 # String Calculator
 
+https://github1s.com/ishtpreet/TDD-Kata
+
 Steps to Run:
 
 1. Clone the repository:
