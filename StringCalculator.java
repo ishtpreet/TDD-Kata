@@ -50,6 +50,7 @@ class StringCalculator{
         //Pushing numbers to array
         String[] strNumbers = numberString.split(delimiterS);
         int Sum=0;
+        boolean negatives = false;
         for(int i=0;i<strNumbers.length;i++){
           try{
             if(Integer.parseInt(strNumbers[i])<0){
@@ -61,8 +62,12 @@ class StringCalculator{
             }
           } catch (NegativeNumberException e) {
             System.out.println(e.getMessage()+": "+strNumbers[i]);
-            return -1;
+            negatives = true;
+            continue;
           }
+        }
+        if(negatives){
+          return -1;
         }
         return Sum;        
       }
